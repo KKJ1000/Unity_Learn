@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     public Rigidbody2D playerRigidBody;
+    public Animator playerAnimator;
 
 
     private bool isGrounded = true;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         {
             playerRigidBody.AddForceY(jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+            playerAnimator.SetInteger("state", 1);
         }
     }
 
@@ -29,6 +31,10 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "Platform")
         {
+            if (!isGrounded)
+            {
+                playerAnimator.SetInteger("state", 2);
+            }
             isGrounded = true;
         }
     }
