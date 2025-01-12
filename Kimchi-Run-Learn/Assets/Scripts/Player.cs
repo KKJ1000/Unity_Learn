@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     {
         playerCollider.enabled = false;
         playerAnimator.enabled = false;
-        playerRigidBody.AddForceY(jumpForce, ForceMode2D.Impulse);
+        playerRigidBody.AddForceY(jumpForce - 8f, ForceMode2D.Impulse);
     }
 
     void Hit()
