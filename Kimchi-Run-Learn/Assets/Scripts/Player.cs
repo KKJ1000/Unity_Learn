@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
 
     private bool isGrounded = true;
 
-    private int lives = 3;
     private bool isInvincible = false;
 
     void Update()
@@ -26,7 +25,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void KillPlayer()
+    public void KillPlayer()
     {
         playerCollider.enabled = false;
         playerAnimator.enabled = false;
@@ -35,8 +34,8 @@ public class Player : MonoBehaviour
 
     void Hit()
     {
-        lives -= 1; // 생명력 1 감소
-        if (lives == 0)
+        GameManager.Instance.Lives -= 1; // 생명력 1 감소
+        if (GameManager.Instance.Lives == 0)
         {
             KillPlayer();
         }
@@ -44,7 +43,7 @@ public class Player : MonoBehaviour
 
     void Heal()
     {
-        lives = Mathf.Min(3, lives + 1);
+        GameManager.Instance.Lives = Mathf.Min(3, GameManager.Instance.Lives + 1);
     }
 
     void StartInvincible()
