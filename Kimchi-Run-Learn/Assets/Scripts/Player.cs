@@ -9,13 +9,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D playerRigidBody;
     public Animator playerAnimator;
 
-
     private bool isGrounded = true;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
